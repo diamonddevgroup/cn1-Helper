@@ -2,6 +2,7 @@ package com.diamonddevgroup.utils;
 
 import com.codename1.ui.Component;
 import com.codename1.ui.Font;
+import com.codename1.ui.Image;
 import com.codename1.ui.plaf.Style;
 
 /**
@@ -1553,6 +1554,18 @@ public class Helper {
     public Helper bgColor_(int color) {
         this.cmp.getUnselectedStyle().setBgTransparency(255);
         this.cmp.getUnselectedStyle().setBgColor(color);
+        return this;
+    }
+    
+    /**
+     * Apply a custom background color
+     *
+     * @param color int color to apply to background
+     * @return the component with the applied styling to pressed state
+     */
+    public Helper bgColor___(int color) {
+        this.cmp.getPressedStyle().setBgTransparency(255);
+        this.cmp.getPressedStyle().setBgColor(color);
         return this;
     }
 
@@ -3187,6 +3200,17 @@ public class Helper {
         this.cmp.getAllStyles().setFgColor(color);
         return this;
     }
+    
+    /**
+     * Apply a custom text color
+     *
+     * @param color int color to apply to text
+     * @return the component with the applied styling to pressed state
+     */
+    public Helper textColor___(int color) {
+        this.cmp.getPressedStyle().setFgColor(color);
+        return this;
+    }
 
     /**
      * Mute a text to look disabled
@@ -3458,6 +3482,19 @@ public class Helper {
         return this;
     }
 
+    /**
+     * Apply a custom background image that fills the background
+     *
+     * @param image Image to apply to background
+     * @return the component with the applied styling to all states
+     */
+    public Helper bgImage(Image image) {
+        this.cmp.getAllStyles().setBgTransparency(0);
+        this.cmp.getAllStyles().setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
+        this.cmp.getAllStyles().setBgImage(image);
+        return this;
+    }
+    
     /**
      * Apply a custom background color
      *
