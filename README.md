@@ -1,5 +1,5 @@
 # cn1-Helper
-A Helper library for basic styling in Codename One, which provides an alternative to having endless UIID in your GUI builder
+A Helper library for basic styling using code in Codename One. This eliminates the to have endless endless UIID in your GUI builder
 
 # How to use
 Download  [Helper.cn1Lib][1] to the **Lib** folder of your project.
