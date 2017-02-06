@@ -17,7 +17,7 @@ import com.codename1.ui.plaf.Style;
  */
 public class Helper {
 
-    Component cmp;
+    Component[] cmps;
 
     /**
      * Root method to set component and begin chaining of other methods to apply
@@ -26,11 +26,30 @@ public class Helper {
      * @param component component to apply styling to
      *
      */
-    public Helper(Component component) {
-        this.cmp = component;
-        this.cmp.getAllStyles().setMarginUnit(Style.UNIT_TYPE_DIPS);
-        this.cmp.getAllStyles().setPaddingUnit(Style.UNIT_TYPE_DIPS);
-        //this.cmp.getUnselectedStyle().setBgTransparency(255);        
+    public Helper(Component... component) {
+        this.cmps = component;
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginUnit(Style.UNIT_TYPE_DIPS);
+            c.getAllStyles().setPaddingUnit(Style.UNIT_TYPE_DIPS);
+            // c.getUnselectedStyle().setBgTransparency(255);        
+        }
+    }
+
+    /**
+     * Root method to set component, the unit and begin chaining of other
+     * methods to apply styling
+     *
+     * @param component component to apply styling to
+     * @param unit
+     *
+     */
+    public Helper(byte unit, Component... component) {
+        this.cmps = component;
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginUnit(unit);
+            c.getAllStyles().setPaddingUnit(unit);
+        }
+        //c.getUnselectedStyle().setBgTransparency(255);        
     }
 
     /**
@@ -42,10 +61,10 @@ public class Helper {
      *
      */
     public Helper(Component component, byte unit) {
-        this.cmp = component;
-        this.cmp.getAllStyles().setMarginUnit(unit);
-        this.cmp.getAllStyles().setPaddingUnit(unit);
-        //this.cmp.getUnselectedStyle().setBgTransparency(255);        
+        component.getAllStyles().setMarginUnit(unit);
+        component.getAllStyles().setPaddingUnit(unit);
+        this.cmps = new Component[]{component};
+        //c.getUnselectedStyle().setBgTransparency(255);        
     }
 
     /**
@@ -54,7 +73,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt0_() {
-        this.cmp.getUnselectedStyle().setMarginTop(0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(0);
+        }
         return this;
     }
 
@@ -64,7 +85,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mb0_() {
-        this.cmp.getUnselectedStyle().setMarginBottom(0);
+
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(0);
+        }
         return this;
     }
 
@@ -74,7 +98,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml0_() {
-        this.cmp.getUnselectedStyle().setMarginLeft(0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(0);
+        }
         return this;
     }
 
@@ -84,7 +110,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr0_() {
-        this.cmp.getUnselectedStyle().setMarginRight(0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(0);
+        }
         return this;
     }
 
@@ -129,7 +157,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt1_() {
-        this.cmp.getUnselectedStyle().setMarginTop(1);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(1);
+        }
         return this;
     }
 
@@ -139,7 +169,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mb1_() {
-        this.cmp.getUnselectedStyle().setMarginBottom(1);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(1);
+        }
         return this;
     }
 
@@ -149,7 +181,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml1_() {
-        this.cmp.getUnselectedStyle().setMarginLeft(1);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(1);
+        }
         return this;
     }
 
@@ -159,7 +193,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr1_() {
-        this.cmp.getUnselectedStyle().setMarginRight(1);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(1);
+        }
         return this;
     }
 
@@ -204,7 +240,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt2_() {
-        this.cmp.getUnselectedStyle().setMarginTop(2);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(2);
+        }
         return this;
     }
 
@@ -214,7 +252,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mb2_() {
-        this.cmp.getUnselectedStyle().setMarginBottom(2);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(2);
+        }
         return this;
     }
 
@@ -224,7 +264,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml2_() {
-        this.cmp.getUnselectedStyle().setMarginLeft(2);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(2);
+        }
         return this;
     }
 
@@ -234,7 +276,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr2_() {
-        this.cmp.getUnselectedStyle().setMarginRight(2);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(2);
+        }
         return this;
     }
 
@@ -279,7 +323,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt3_() {
-        this.cmp.getUnselectedStyle().setMarginTop(3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(3);
+        }
         return this;
     }
 
@@ -289,7 +335,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mb3_() {
-        this.cmp.getUnselectedStyle().setMarginBottom(3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(3);
+        }
         return this;
     }
 
@@ -299,7 +347,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml3_() {
-        this.cmp.getUnselectedStyle().setMarginLeft(3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(3);
+        }
         return this;
     }
 
@@ -309,7 +359,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr3_() {
-        this.cmp.getUnselectedStyle().setMarginRight(3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(3);
+        }
         return this;
     }
 
@@ -354,7 +406,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt4_() {
-        this.cmp.getUnselectedStyle().setMarginTop(4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(4);
+        }
         return this;
     }
 
@@ -365,7 +419,9 @@ public class Helper {
      */
     public Helper mb4_() {
 
-        this.cmp.getUnselectedStyle().setMarginBottom(4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(4);
+        }
         return this;
     }
 
@@ -375,7 +431,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml4_() {
-        this.cmp.getUnselectedStyle().setMarginLeft(4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(4);
+        }
         return this;
     }
 
@@ -385,7 +443,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr4_() {
-        this.cmp.getUnselectedStyle().setMarginRight(4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(4);
+        }
         return this;
     }
 
@@ -430,7 +490,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt5_() {
-        this.cmp.getUnselectedStyle().setMarginTop(5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(5);
+        }
         return this;
     }
 
@@ -440,7 +502,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mb5_() {
-        this.cmp.getUnselectedStyle().setMarginBottom(5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(5);
+        }
         return this;
     }
 
@@ -450,7 +514,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml5_() {
-        this.cmp.getUnselectedStyle().setMarginLeft(5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(5);
+        }
         return this;
     }
 
@@ -460,7 +526,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr5_() {
-        this.cmp.getUnselectedStyle().setMarginRight(5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(5);
+        }
         return this;
     }
 
@@ -505,7 +573,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt6_() {
-        this.cmp.getUnselectedStyle().setMarginTop(6);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(6);
+        }
         return this;
     }
 
@@ -515,7 +585,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mb6_() {
-        this.cmp.getUnselectedStyle().setMarginBottom(6);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(6);
+        }
         return this;
     }
 
@@ -525,7 +597,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml6_() {
-        this.cmp.getUnselectedStyle().setMarginLeft(6);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(6);
+        }
         return this;
     }
 
@@ -535,7 +609,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr6_() {
-        this.cmp.getUnselectedStyle().setMarginRight(6);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(6);
+        }
         return this;
     }
 
@@ -581,7 +657,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt_(int size) {
-        this.cmp.getUnselectedStyle().setMarginTop(size);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(size);
+        }
         return this;
     }
 
@@ -592,7 +670,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mb_(int size) {
-        this.cmp.getUnselectedStyle().setMarginBottom(size);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(size);
+        }
         return this;
     }
 
@@ -603,7 +683,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml_(int size) {
-        this.cmp.getUnselectedStyle().setMarginLeft(size);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(size);
+        }
         return this;
     }
 
@@ -614,7 +696,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr_(int size) {
-        this.cmp.getUnselectedStyle().setMarginRight(size);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(size);
+        }
         return this;
     }
 
@@ -662,7 +746,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pt0_() {
-        this.cmp.getUnselectedStyle().setPaddingTop(0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingTop(0);
+        }
         return this;
     }
 
@@ -672,7 +758,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pb0_() {
-        this.cmp.getUnselectedStyle().setPaddingBottom(0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingBottom(0);
+        }
         return this;
     }
 
@@ -682,7 +770,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pl0_() {
-        this.cmp.getUnselectedStyle().setPaddingLeft(0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingLeft(0);
+        }
         return this;
     }
 
@@ -692,7 +782,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pr0_() {
-        this.cmp.getUnselectedStyle().setPaddingRight(0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingRight(0);
+        }
         return this;
     }
 
@@ -737,7 +829,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pt1_() {
-        this.cmp.getUnselectedStyle().setPaddingTop(1);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingTop(1);
+        }
         return this;
     }
 
@@ -747,7 +841,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pb1_() {
-        this.cmp.getUnselectedStyle().setPaddingBottom(1);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingBottom(1);
+        }
         return this;
     }
 
@@ -757,7 +853,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pl1_() {
-        this.cmp.getUnselectedStyle().setPaddingLeft(1);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingLeft(1);
+        }
         return this;
     }
 
@@ -767,7 +865,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pr1_() {
-        this.cmp.getUnselectedStyle().setPaddingRight(1);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingRight(1);
+        }
         return this;
     }
 
@@ -812,7 +912,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pt2_() {
-        this.cmp.getUnselectedStyle().setPaddingTop(2);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingTop(2);
+        }
         return this;
     }
 
@@ -822,7 +924,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pb2_() {
-        this.cmp.getUnselectedStyle().setPaddingBottom(2);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingBottom(2);
+        }
         return this;
     }
 
@@ -832,7 +936,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pl2_() {
-        this.cmp.getUnselectedStyle().setPaddingLeft(2);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingLeft(2);
+        }
         return this;
     }
 
@@ -842,7 +948,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pr2_() {
-        this.cmp.getUnselectedStyle().setPaddingRight(2);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingRight(2);
+        }
         return this;
     }
 
@@ -887,7 +995,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pt3_() {
-        this.cmp.getUnselectedStyle().setPaddingTop(3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingTop(3);
+        }
         return this;
     }
 
@@ -897,7 +1007,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pb3_() {
-        this.cmp.getUnselectedStyle().setPaddingBottom(3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingBottom(3);
+        }
         return this;
     }
 
@@ -908,7 +1020,9 @@ public class Helper {
      */
     public Helper pl3_() {
 
-        this.cmp.getUnselectedStyle().setPaddingLeft(3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingLeft(3);
+        }
         return this;
     }
 
@@ -918,7 +1032,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pr3_() {
-        this.cmp.getUnselectedStyle().setPaddingRight(3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingRight(3);
+        }
         return this;
     }
 
@@ -963,7 +1079,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pt4_() {
-        this.cmp.getUnselectedStyle().setPaddingTop(4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingTop(4);
+        }
         return this;
     }
 
@@ -973,7 +1091,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pb4_() {
-        this.cmp.getUnselectedStyle().setPaddingBottom(4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingBottom(4);
+        }
         return this;
     }
 
@@ -983,7 +1103,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pl4_() {
-        this.cmp.getUnselectedStyle().setPaddingLeft(4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingLeft(4);
+        }
         return this;
     }
 
@@ -993,7 +1115,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pr4_() {
-        this.cmp.getUnselectedStyle().setPaddingRight(4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingRight(4);
+        }
         return this;
     }
 
@@ -1038,7 +1162,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pt5_() {
-        this.cmp.getUnselectedStyle().setPaddingTop(5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingTop(5);
+        }
         return this;
     }
 
@@ -1048,7 +1174,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pb5_() {
-        this.cmp.getUnselectedStyle().setPaddingBottom(5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingBottom(5);
+        }
         return this;
     }
 
@@ -1058,7 +1186,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pl5_() {
-        this.cmp.getUnselectedStyle().setPaddingLeft(5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingLeft(5);
+        }
         return this;
     }
 
@@ -1068,7 +1198,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pr5_() {
-        this.cmp.getUnselectedStyle().setPaddingRight(5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingRight(5);
+        }
         return this;
     }
 
@@ -1113,7 +1245,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pt6_() {
-        this.cmp.getUnselectedStyle().setPaddingTop(6);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingTop(6);
+        }
         return this;
     }
 
@@ -1123,7 +1257,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pb6_() {
-        this.cmp.getUnselectedStyle().setPaddingBottom(6);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingBottom(6);
+        }
         return this;
     }
 
@@ -1133,7 +1269,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pl6_() {
-        this.cmp.getUnselectedStyle().setPaddingLeft(6);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingLeft(6);
+        }
         return this;
     }
 
@@ -1143,7 +1281,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper pr6_() {
-        this.cmp.getUnselectedStyle().setPaddingRight(6);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setPaddingRight(6);
+        }
         return this;
     }
 
@@ -1189,7 +1329,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt_(int size) {
-        this.cmp.getAllStyles().setPaddingTop(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(size);
+        }
         return this;
     }
 
@@ -1200,7 +1342,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb_(int size) {
-        this.cmp.getAllStyles().setPaddingBottom(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(size);
+        }
         return this;
     }
 
@@ -1211,7 +1355,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl_(int size) {
-        this.cmp.getAllStyles().setPaddingLeft(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(size);
+        }
         return this;
     }
 
@@ -1222,7 +1368,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr_(int size) {
-        this.cmp.getAllStyles().setPaddingRight(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(size);
+        }
         return this;
     }
 
@@ -1271,7 +1419,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textColor_(int color) {
-        this.cmp.getUnselectedStyle().setFgColor(color);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(color);
+        }
         return this;
     }
 
@@ -1281,7 +1431,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textMuted_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x818a91);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x818a91);
+        }
         return this;
     }
 
@@ -1291,7 +1443,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textPrimary_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x145F80);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x145F80);
+        }
         return this;
     }
 
@@ -1301,7 +1455,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textSuccess_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x5cb85c);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x5cb85c);
+        }
         return this;
     }
 
@@ -1311,7 +1467,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textInfo_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x5bc0de);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x5bc0de);
+        }
         return this;
     }
 
@@ -1321,7 +1479,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textWarning_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xf0ad4e);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xf0ad4e);
+        }
         return this;
     }
 
@@ -1331,7 +1491,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textDanger_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xd9534f);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xd9534f);
+        }
         return this;
     }
 
@@ -1341,7 +1503,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textRed_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xf44336);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xf44336);
+        }
         return this;
     }
 
@@ -1351,7 +1515,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textPink_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xe91e63);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xe91e63);
+        }
         return this;
     }
 
@@ -1361,7 +1527,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textPurple_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x9c27b0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x9c27b0);
+        }
         return this;
     }
 
@@ -1371,7 +1539,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textDeepPurple_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x673ab7);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x673ab7);
+        }
         return this;
     }
 
@@ -1381,7 +1551,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textIndigo_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x3f51b5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x3f51b5);
+        }
         return this;
     }
 
@@ -1391,7 +1563,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textBlue_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x2196F3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x2196F3);
+        }
         return this;
     }
 
@@ -1401,7 +1575,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textLightBlue_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x03a9f4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x03a9f4);
+        }
         return this;
     }
 
@@ -1411,7 +1587,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textCyan_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x00bcd4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x00bcd4);
+        }
         return this;
     }
 
@@ -1421,7 +1599,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textTeal_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x009688);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x009688);
+        }
         return this;
     }
 
@@ -1431,7 +1611,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textGreen_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x4caf50);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x4caf50);
+        }
         return this;
     }
 
@@ -1441,7 +1623,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textLightGreen_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x8bc34a);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x8bc34a);
+        }
         return this;
     }
 
@@ -1451,7 +1635,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textLime_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xcddc39);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xcddc39);
+        }
         return this;
     }
 
@@ -1461,7 +1647,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textYellow_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xffeb3b);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xffeb3b);
+        }
         return this;
     }
 
@@ -1471,7 +1659,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textAmber_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xffc107);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xffc107);
+        }
         return this;
     }
 
@@ -1481,7 +1671,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textOrange_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xff9800);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xff9800);
+        }
         return this;
     }
 
@@ -1491,7 +1683,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textDeepOrange_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xff5722);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xff5722);
+        }
         return this;
     }
 
@@ -1501,7 +1695,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textBrown_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x795548);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x795548);
+        }
         return this;
     }
 
@@ -1511,7 +1707,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textGrey_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x9e9e9e);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x9e9e9e);
+        }
         return this;
     }
 
@@ -1521,7 +1719,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textBlueGrey_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x607d8b);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x607d8b);
+        }
         return this;
     }
 
@@ -1531,7 +1731,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textBlack_() {
-        this.cmp.getUnselectedStyle().setFgColor(0x000000);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0x000000);
+        }
         return this;
     }
 
@@ -1541,7 +1743,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textWhite_() {
-        this.cmp.getUnselectedStyle().setFgColor(0xffffff);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFgColor(0xffffff);
+        }
         return this;
     }
 
@@ -1552,11 +1756,13 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgColor_(int color) {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(color);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(color);
+        }
         return this;
     }
-    
+
     /**
      * Apply a custom background color
      *
@@ -1564,8 +1770,10 @@ public class Helper {
      * @return the component with the applied styling to pressed state
      */
     public Helper bgColor___(int color) {
-        this.cmp.getPressedStyle().setBgTransparency(255);
-        this.cmp.getPressedStyle().setBgColor(color);
+        for (Component c : cmps) {
+            c.getPressedStyle().setBgTransparency(255);
+            c.getPressedStyle().setBgColor(color);
+        }
         return this;
     }
 
@@ -1575,8 +1783,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgMuted_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x818a91);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x818a91);
+        }
         return this;
     }
 
@@ -1586,8 +1796,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgPrimary_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x145F80);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x145F80);
+        }
         return this;
     }
 
@@ -1597,8 +1809,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgSuccess_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x5cb85c);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x5cb85c);
+        }
         return this;
     }
 
@@ -1608,8 +1822,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgInfo_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x5bc0de);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x5bc0de);
+        }
         return this;
     }
 
@@ -1619,8 +1835,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgWarning_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xf0ad4e);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xf0ad4e);
+        }
         return this;
     }
 
@@ -1630,8 +1848,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgDanger_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xd9534f);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xd9534f);
+        }
         return this;
     }
 
@@ -1641,8 +1861,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgRed_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xf44336);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xf44336);
+        }
         return this;
     }
 
@@ -1652,8 +1874,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgPink_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xe91e63);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xe91e63);
+        }
         return this;
     }
 
@@ -1663,8 +1887,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgPurple_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x9c27b0);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x9c27b0);
+        }
         return this;
     }
 
@@ -1674,8 +1900,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgDeepPurple_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x673ab7);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x673ab7);
+        }
         return this;
     }
 
@@ -1685,8 +1913,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgIndigo_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x3f51b5);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x3f51b5);
+        }
         return this;
     }
 
@@ -1696,8 +1926,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgBlue_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x2196F3);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x2196F3);
+        }
         return this;
     }
 
@@ -1707,8 +1939,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgLightBlue_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x03a9f4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x03a9f4);
+        }
         return this;
     }
 
@@ -1718,8 +1952,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgCyan_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x00bcd4);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x00bcd4);
+        }
         return this;
     }
 
@@ -1729,8 +1965,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgTeal_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x009688);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x009688);
+        }
         return this;
     }
 
@@ -1740,8 +1978,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgGreen_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x4caf50);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x4caf50);
+        }
         return this;
     }
 
@@ -1751,8 +1991,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgLightGreen_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x8bc34a);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x8bc34a);
+        }
         return this;
     }
 
@@ -1762,8 +2004,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgLime_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xcddc39);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xcddc39);
+        }
         return this;
     }
 
@@ -1773,8 +2017,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgYellow_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xffeb3b);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xffeb3b);
+        }
         return this;
     }
 
@@ -1784,8 +2030,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgAmber_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xffc107);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xffc107);
+        }
         return this;
     }
 
@@ -1795,8 +2043,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgOrange_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xff9800);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xff9800);
+        }
         return this;
     }
 
@@ -1806,8 +2056,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgDeepOrange_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xff5722);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xff5722);
+        }
         return this;
     }
 
@@ -1817,8 +2069,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgBrown_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x795548);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x795548);
+        }
         return this;
     }
 
@@ -1828,8 +2082,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgGrey_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x9e9e9e);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x9e9e9e);
+        }
         return this;
     }
 
@@ -1839,8 +2095,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgLightGrey_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xebebeb);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xebebeb);
+        }
         return this;
     }
 
@@ -1850,8 +2108,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgBlueGrey_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x607d8b);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x607d8b);
+        }
         return this;
     }
 
@@ -1861,8 +2121,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgBlack_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0x000000);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0x000000);
+        }
         return this;
     }
 
@@ -1872,8 +2134,10 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper bgWhite_() {
-        this.cmp.getUnselectedStyle().setBgTransparency(255);
-        this.cmp.getUnselectedStyle().setBgColor(0xffffff);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgColor(0xffffff);
+        }
         return this;
     }
 
@@ -1883,9 +2147,11 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textSmall_() {
-        Font font = this.cmp.getUnselectedStyle().getFont();
-        font.derive(Font.SIZE_SMALL, Font.STYLE_PLAIN);
-        this.cmp.getUnselectedStyle().setFont(font, true);
+        for (Component c : cmps) {
+            Font font = c.getUnselectedStyle().getFont();
+            font.derive(Font.SIZE_SMALL, Font.STYLE_PLAIN);
+            c.getUnselectedStyle().setFont(font, true);
+        }
         return this;
     }
 
@@ -1895,9 +2161,11 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textMedium_() {
-        Font font = this.cmp.getUnselectedStyle().getFont();
-        font.derive(Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
-        this.cmp.getUnselectedStyle().setFont(font, true);
+        for (Component c : cmps) {
+            Font font = c.getUnselectedStyle().getFont();
+            font.derive(Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
+            c.getUnselectedStyle().setFont(font, true);
+        }
         return this;
     }
 
@@ -1907,9 +2175,11 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textLarge_() {
-        Font font = this.cmp.getUnselectedStyle().getFont();
-        font.derive(Font.SIZE_LARGE, Font.STYLE_PLAIN);
-        this.cmp.getUnselectedStyle().setFont(font, true);
+        for (Component c : cmps) {
+            Font font = c.getUnselectedStyle().getFont();
+            font.derive(Font.SIZE_LARGE, Font.STYLE_PLAIN);
+            c.getUnselectedStyle().setFont(font, true);
+        }
         return this;
     }
 
@@ -1919,7 +2189,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textBold_() {
-        this.cmp.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainBold", "native:MainBold"), true);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainBold", "native:MainBold"), true);
+        }
         return this;
     }
 
@@ -1929,7 +2201,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textThin_() {
-        this.cmp.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainThin", "native:MainThin"), true);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainThin", "native:MainThin"), true);
+        }
         return this;
     }
 
@@ -1939,7 +2213,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textItalics_() {
-        this.cmp.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainThin", "native:ItalicLight"), true);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainThin", "native:ItalicLight"), true);
+        }
         return this;
     }
 
@@ -1949,7 +2225,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textLeft_() {
-        this.cmp.getUnselectedStyle().setAlignment(Component.LEFT);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setAlignment(Component.LEFT);
+        }
         return this;
     }
 
@@ -1959,7 +2237,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textRight_() {
-        this.cmp.getUnselectedStyle().setAlignment(Component.RIGHT);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setAlignment(Component.RIGHT);
+        }
         return this;
     }
 
@@ -1969,7 +2249,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper textCenter_() {
-        this.cmp.getUnselectedStyle().setAlignment(Component.CENTER);
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setAlignment(Component.CENTER);
+        }
         return this;
     }
 
@@ -1982,7 +2264,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mt0() {
-        this.cmp.getAllStyles().setMarginTop(0);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(0);
+        }
         return this;
     }
 
@@ -1992,7 +2276,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mb0() {
-        this.cmp.getAllStyles().setMarginBottom(0);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(0);
+        }
         return this;
     }
 
@@ -2002,7 +2288,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper ml0() {
-        this.cmp.getAllStyles().setMarginLeft(0);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(0);
+        }
         return this;
     }
 
@@ -2012,7 +2300,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mr0() {
-        this.cmp.getAllStyles().setMarginRight(0);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(0);
+        }
         return this;
     }
 
@@ -2057,7 +2347,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mt1() {
-        this.cmp.getAllStyles().setMarginTop(1);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(1);
+        }
         return this;
     }
 
@@ -2067,7 +2359,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mb1() {
-        this.cmp.getAllStyles().setMarginBottom(1);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(1);
+        }
         return this;
     }
 
@@ -2077,7 +2371,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper ml1() {
-        this.cmp.getAllStyles().setMarginLeft(1);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(1);
+        }
         return this;
     }
 
@@ -2087,7 +2383,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mr1() {
-        this.cmp.getAllStyles().setMarginRight(1);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(1);
+        }
         return this;
     }
 
@@ -2132,7 +2430,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mt2() {
-        this.cmp.getAllStyles().setMarginTop(2);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(2);
+        }
         return this;
     }
 
@@ -2142,7 +2442,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mb2() {
-        this.cmp.getAllStyles().setMarginBottom(2);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(2);
+        }
         return this;
     }
 
@@ -2152,7 +2454,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper ml2() {
-        this.cmp.getAllStyles().setMarginLeft(2);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(2);
+        }
         return this;
     }
 
@@ -2162,7 +2466,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mr2() {
-        this.cmp.getAllStyles().setMarginRight(2);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(2);
+        }
         return this;
     }
 
@@ -2207,7 +2513,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mt3() {
-        this.cmp.getAllStyles().setMarginTop(3);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(3);
+        }
         return this;
     }
 
@@ -2217,7 +2525,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mb3() {
-        this.cmp.getAllStyles().setMarginBottom(3);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(3);
+        }
         return this;
     }
 
@@ -2227,7 +2537,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper ml3() {
-        this.cmp.getAllStyles().setMarginLeft(3);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(3);
+        }
         return this;
     }
 
@@ -2237,7 +2549,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mr3() {
-        this.cmp.getAllStyles().setMarginRight(3);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(3);
+        }
         return this;
     }
 
@@ -2282,7 +2596,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mt4() {
-        this.cmp.getAllStyles().setMarginTop(4);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(4);
+        }
         return this;
     }
 
@@ -2292,7 +2608,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mb4() {
-        this.cmp.getAllStyles().setMarginBottom(4);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(4);
+        }
         return this;
     }
 
@@ -2302,7 +2620,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper ml4() {
-        this.cmp.getAllStyles().setMarginLeft(4);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(4);
+        }
         return this;
     }
 
@@ -2312,7 +2632,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mr4() {
-        this.cmp.getAllStyles().setMarginRight(4);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(4);
+        }
         return this;
     }
 
@@ -2357,7 +2679,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mt5() {
-        this.cmp.getAllStyles().setMarginTop(5);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(5);
+        }
         return this;
     }
 
@@ -2367,7 +2691,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mb5() {
-        this.cmp.getAllStyles().setMarginBottom(5);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(5);
+        }
         return this;
     }
 
@@ -2377,7 +2703,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper ml5() {
-        this.cmp.getAllStyles().setMarginLeft(5);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(5);
+        }
         return this;
     }
 
@@ -2387,7 +2715,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mr5() {
-        this.cmp.getAllStyles().setMarginRight(5);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(5);
+        }
         return this;
     }
 
@@ -2432,7 +2762,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mt6() {
-        this.cmp.getAllStyles().setMarginTop(6);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(6);
+        }
         return this;
     }
 
@@ -2442,7 +2774,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mb6() {
-        this.cmp.getAllStyles().setMarginBottom(6);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(6);
+        }
         return this;
     }
 
@@ -2452,7 +2786,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper ml6() {
-        this.cmp.getAllStyles().setMarginLeft(6);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(6);
+        }
         return this;
     }
 
@@ -2462,7 +2798,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper mr6() {
-        this.cmp.getAllStyles().setMarginRight(6);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(6);
+        }
         return this;
     }
 
@@ -2508,7 +2846,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mt(int size) {
-        this.cmp.getAllStyles().setMarginTop(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(size);
+        }
         return this;
     }
 
@@ -2519,7 +2859,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mb(int size) {
-        this.cmp.getAllStyles().setMarginBottom(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(size);
+        }
         return this;
     }
 
@@ -2530,7 +2872,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper ml(int size) {
-        this.cmp.getAllStyles().setMarginLeft(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(size);
+        }
         return this;
     }
 
@@ -2541,7 +2885,9 @@ public class Helper {
      * @return the component with the applied styling to unselected state
      */
     public Helper mr(int size) {
-        this.cmp.getAllStyles().setMarginRight(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(size);
+        }
         return this;
     }
 
@@ -2589,7 +2935,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt0() {
-        this.cmp.getAllStyles().setPaddingTop(0);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(0);
+        }
         return this;
     }
 
@@ -2599,7 +2947,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb0() {
-        this.cmp.getAllStyles().setPaddingBottom(0);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(0);
+        }
         return this;
     }
 
@@ -2609,7 +2959,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl0() {
-        this.cmp.getAllStyles().setPaddingLeft(0);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(0);
+        }
         return this;
     }
 
@@ -2619,7 +2971,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr0() {
-        this.cmp.getAllStyles().setPaddingRight(0);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(0);
+        }
         return this;
     }
 
@@ -2664,7 +3018,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt1() {
-        this.cmp.getAllStyles().setPaddingTop(1);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(1);
+        }
         return this;
     }
 
@@ -2674,7 +3030,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb1() {
-        this.cmp.getAllStyles().setPaddingBottom(1);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(1);
+        }
         return this;
     }
 
@@ -2684,7 +3042,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl1() {
-        this.cmp.getAllStyles().setPaddingLeft(1);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(1);
+        }
         return this;
     }
 
@@ -2694,7 +3054,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr1() {
-        this.cmp.getAllStyles().setPaddingRight(1);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(1);
+        }
         return this;
     }
 
@@ -2739,7 +3101,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt2() {
-        this.cmp.getAllStyles().setPaddingTop(2);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(2);
+        }
         return this;
     }
 
@@ -2749,7 +3113,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb2() {
-        this.cmp.getAllStyles().setPaddingBottom(2);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(2);
+        }
         return this;
     }
 
@@ -2759,7 +3125,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl2() {
-        this.cmp.getAllStyles().setPaddingLeft(2);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(2);
+        }
         return this;
     }
 
@@ -2769,7 +3137,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr2() {
-        this.cmp.getAllStyles().setPaddingRight(2);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(2);
+        }
         return this;
     }
 
@@ -2814,7 +3184,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt3() {
-        this.cmp.getAllStyles().setPaddingTop(3);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(3);
+        }
         return this;
     }
 
@@ -2824,7 +3196,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb3() {
-        this.cmp.getAllStyles().setPaddingBottom(3);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(3);
+        }
         return this;
     }
 
@@ -2834,7 +3208,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl3() {
-        this.cmp.getAllStyles().setPaddingLeft(3);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(3);
+        }
         return this;
     }
 
@@ -2844,7 +3220,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr3() {
-        this.cmp.getAllStyles().setPaddingRight(3);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(3);
+        }
         return this;
     }
 
@@ -2889,7 +3267,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt4() {
-        this.cmp.getAllStyles().setPaddingTop(4);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(4);
+        }
         return this;
     }
 
@@ -2899,7 +3279,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb4() {
-        this.cmp.getAllStyles().setPaddingBottom(4);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(4);
+        }
         return this;
     }
 
@@ -2909,7 +3291,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl4() {
-        this.cmp.getAllStyles().setPaddingLeft(4);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(4);
+        }
         return this;
     }
 
@@ -2919,7 +3303,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr4() {
-        this.cmp.getAllStyles().setPaddingRight(4);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(4);
+        }
         return this;
     }
 
@@ -2964,7 +3350,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt5() {
-        this.cmp.getAllStyles().setPaddingTop(5);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(5);
+        }
         return this;
     }
 
@@ -2974,7 +3362,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb5() {
-        this.cmp.getAllStyles().setPaddingBottom(5);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(5);
+        }
         return this;
     }
 
@@ -2984,7 +3374,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl5() {
-        this.cmp.getAllStyles().setPaddingLeft(5);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(5);
+        }
         return this;
     }
 
@@ -2994,7 +3386,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr5() {
-        this.cmp.getAllStyles().setPaddingRight(5);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(5);
+        }
         return this;
     }
 
@@ -3039,7 +3433,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt6() {
-        this.cmp.getAllStyles().setPaddingTop(6);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(6);
+        }
         return this;
     }
 
@@ -3049,7 +3445,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb6() {
-        this.cmp.getAllStyles().setPaddingBottom(6);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(6);
+        }
         return this;
     }
 
@@ -3059,7 +3457,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl6() {
-        this.cmp.getAllStyles().setPaddingLeft(6);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(6);
+        }
         return this;
     }
 
@@ -3069,7 +3469,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr6() {
-        this.cmp.getAllStyles().setPaddingRight(6);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(6);
+        }
         return this;
     }
 
@@ -3115,7 +3517,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pt(int size) {
-        this.cmp.getAllStyles().setPaddingTop(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(size);
+        }
         return this;
     }
 
@@ -3126,7 +3530,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pb(int size) {
-        this.cmp.getAllStyles().setPaddingBottom(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(size);
+        }
         return this;
     }
 
@@ -3137,7 +3543,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pl(int size) {
-        this.cmp.getAllStyles().setPaddingLeft(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(size);
+        }
         return this;
     }
 
@@ -3148,7 +3556,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper pr(int size) {
-        this.cmp.getAllStyles().setPaddingRight(size);
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(size);
+        }
         return this;
     }
 
@@ -3197,10 +3607,12 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textColor(int color) {
-        this.cmp.getAllStyles().setFgColor(color);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(color);
+        }
         return this;
     }
-    
+
     /**
      * Apply a custom text color
      *
@@ -3208,7 +3620,9 @@ public class Helper {
      * @return the component with the applied styling to pressed state
      */
     public Helper textColor___(int color) {
-        this.cmp.getPressedStyle().setFgColor(color);
+        for (Component c : cmps) {
+            c.getPressedStyle().setFgColor(color);
+        }
         return this;
     }
 
@@ -3218,7 +3632,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textMuted() {
-        this.cmp.getAllStyles().setFgColor(0x818a91);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x818a91);
+        }
         return this;
     }
 
@@ -3228,7 +3644,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textPrimary() {
-        this.cmp.getAllStyles().setFgColor(0x145F80);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x145F80);
+        }
         return this;
     }
 
@@ -3238,7 +3656,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textSuccess() {
-        this.cmp.getAllStyles().setFgColor(0x5cb85c);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x5cb85c);
+        }
         return this;
     }
 
@@ -3248,7 +3668,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textInfo() {
-        this.cmp.getAllStyles().setFgColor(0x5bc0de);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x5bc0de);
+        }
         return this;
     }
 
@@ -3258,7 +3680,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textWarning() {
-        this.cmp.getAllStyles().setFgColor(0xf0ad4e);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xf0ad4e);
+        }
         return this;
     }
 
@@ -3268,7 +3692,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textDanger() {
-        this.cmp.getAllStyles().setFgColor(0xd9534f);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xd9534f);
+        }
         return this;
     }
 
@@ -3278,7 +3704,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textRed() {
-        this.cmp.getAllStyles().setFgColor(0xf44336);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xf44336);
+        }
         return this;
     }
 
@@ -3288,7 +3716,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textPink() {
-        this.cmp.getAllStyles().setFgColor(0xe91e63);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xe91e63);
+        }
         return this;
     }
 
@@ -3298,7 +3728,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textPurple() {
-        this.cmp.getAllStyles().setFgColor(0x9c27b0);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x9c27b0);
+        }
         return this;
     }
 
@@ -3308,7 +3740,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textDeepPurple() {
-        this.cmp.getAllStyles().setFgColor(0x673ab7);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x673ab7);
+        }
         return this;
     }
 
@@ -3318,7 +3752,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textIndigo() {
-        this.cmp.getAllStyles().setFgColor(0x3f51b5);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x3f51b5);
+        }
         return this;
     }
 
@@ -3328,7 +3764,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textBlue() {
-        this.cmp.getAllStyles().setFgColor(0x2196F3);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x2196F3);
+        }
         return this;
     }
 
@@ -3338,7 +3776,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textLightBlue() {
-        this.cmp.getAllStyles().setFgColor(0x03a9f4);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x03a9f4);
+        }
         return this;
     }
 
@@ -3348,7 +3788,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textCyan() {
-        this.cmp.getAllStyles().setFgColor(0x00bcd4);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x00bcd4);
+        }
         return this;
     }
 
@@ -3358,7 +3800,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textTeal() {
-        this.cmp.getAllStyles().setFgColor(0x009688);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x009688);
+        }
         return this;
     }
 
@@ -3368,7 +3812,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textGreen() {
-        this.cmp.getAllStyles().setFgColor(0x4caf50);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x4caf50);
+        }
         return this;
     }
 
@@ -3378,7 +3824,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textLightGreen() {
-        this.cmp.getAllStyles().setFgColor(0x8bc34a);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x8bc34a);
+        }
         return this;
     }
 
@@ -3388,7 +3836,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textLime() {
-        this.cmp.getAllStyles().setFgColor(0xcddc39);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xcddc39);
+        }
         return this;
     }
 
@@ -3398,7 +3848,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textYellow() {
-        this.cmp.getAllStyles().setFgColor(0xffeb3b);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xffeb3b);
+        }
         return this;
     }
 
@@ -3408,7 +3860,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textAmber() {
-        this.cmp.getAllStyles().setFgColor(0xffc107);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xffc107);
+        }
         return this;
     }
 
@@ -3418,7 +3872,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textOrange() {
-        this.cmp.getAllStyles().setFgColor(0xff9800);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xff9800);
+        }
         return this;
     }
 
@@ -3428,7 +3884,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textDeepOrange() {
-        this.cmp.getAllStyles().setFgColor(0xff5722);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xff5722);
+        }
         return this;
     }
 
@@ -3438,7 +3896,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textBrown() {
-        this.cmp.getAllStyles().setFgColor(0x795548);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x795548);
+        }
         return this;
     }
 
@@ -3448,7 +3908,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textGrey() {
-        this.cmp.getAllStyles().setFgColor(0x9e9e9e);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x9e9e9e);
+        }
         return this;
     }
 
@@ -3458,7 +3920,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textBlueGrey() {
-        this.cmp.getAllStyles().setFgColor(0x607d8b);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x607d8b);
+        }
         return this;
     }
 
@@ -3468,7 +3932,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textBlack() {
-        this.cmp.getAllStyles().setFgColor(0x000000);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0x000000);
+        }
         return this;
     }
 
@@ -3478,7 +3944,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textWhite() {
-        this.cmp.getAllStyles().setFgColor(0xffffff);
+        for (Component c : cmps) {
+            c.getAllStyles().setFgColor(0xffffff);
+        }
         return this;
     }
 
@@ -3489,12 +3957,14 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgImage(Image image) {
-        this.cmp.getAllStyles().setBgTransparency(0);
-        this.cmp.getAllStyles().setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
-        this.cmp.getAllStyles().setBgImage(image);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(0);
+            c.getAllStyles().setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
+            c.getAllStyles().setBgImage(image);
+        }
         return this;
     }
-    
+
     /**
      * Apply a custom background color
      *
@@ -3502,8 +3972,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgColor(int color) {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(color);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(color);
+        }
         return this;
     }
 
@@ -3513,8 +3985,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgMuted() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x818a91);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x818a91);
+        }
         return this;
     }
 
@@ -3524,8 +3998,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgPrimary() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x145F80);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x145F80);
+        }
         return this;
     }
 
@@ -3535,8 +4011,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgSuccess() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x5cb85c);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x5cb85c);
+        }
         return this;
     }
 
@@ -3546,8 +4024,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgInfo() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x5bc0de);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x5bc0de);
+        }
         return this;
     }
 
@@ -3557,8 +4037,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgWarning() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xf0ad4e);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xf0ad4e);
+        }
         return this;
     }
 
@@ -3568,8 +4050,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgDanger() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xd9534f);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xd9534f);
+        }
         return this;
     }
 
@@ -3579,8 +4063,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgRed() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xf44336);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xf44336);
+        }
         return this;
     }
 
@@ -3590,8 +4076,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgPink() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xe91e63);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xe91e63);
+        }
         return this;
     }
 
@@ -3601,8 +4089,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgPurple() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x9c27b0);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x9c27b0);
+        }
         return this;
     }
 
@@ -3612,8 +4102,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgDeepPurple() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x673ab7);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x673ab7);
+        }
         return this;
     }
 
@@ -3623,8 +4115,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgIndigo() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x3f51b5);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x3f51b5);
+        }
         return this;
     }
 
@@ -3634,8 +4128,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgBlue() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x2196F3);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x2196F3);
+        }
         return this;
     }
 
@@ -3645,8 +4141,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgLightBlue() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x03a9f4);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x03a9f4);
+        }
         return this;
     }
 
@@ -3656,8 +4154,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgCyan() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x00bcd4);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x00bcd4);
+        }
         return this;
     }
 
@@ -3667,8 +4167,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgTeal() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x009688);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x009688);
+        }
         return this;
     }
 
@@ -3678,8 +4180,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgGreen() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x4caf50);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x4caf50);
+        }
         return this;
     }
 
@@ -3689,8 +4193,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgLightGreen() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x8bc34a);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x8bc34a);
+        }
         return this;
     }
 
@@ -3700,8 +4206,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgLime() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xcddc39);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xcddc39);
+        }
         return this;
     }
 
@@ -3711,8 +4219,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgYellow() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xffeb3b);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xffeb3b);
+        }
         return this;
     }
 
@@ -3722,8 +4232,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgAmber() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xffc107);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xffc107);
+        }
         return this;
     }
 
@@ -3733,8 +4245,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgOrange() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xff9800);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xff9800);
+        }
         return this;
     }
 
@@ -3744,8 +4258,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgDeepOrange() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xff5722);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xff5722);
+        }
         return this;
     }
 
@@ -3755,8 +4271,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgBrown() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x795548);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x795548);
+        }
         return this;
     }
 
@@ -3766,8 +4284,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgGrey() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x9e9e9e);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x9e9e9e);
+        }
         return this;
     }
 
@@ -3777,8 +4297,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgLightGrey() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xebebeb);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xebebeb);
+        }
         return this;
     }
 
@@ -3788,8 +4310,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgBlueGrey() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x607d8b);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x607d8b);
+        }
         return this;
     }
 
@@ -3799,8 +4323,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgBlack() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0x000000);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0x000000);
+        }
         return this;
     }
 
@@ -3810,8 +4336,10 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper bgWhite() {
-        this.cmp.getAllStyles().setBgTransparency(255);
-        this.cmp.getAllStyles().setBgColor(0xffffff);
+        for (Component c : cmps) {
+            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgColor(0xffffff);
+        }
         return this;
     }
 
@@ -3821,9 +4349,11 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textSmall() {
-        Font font = this.cmp.getUnselectedStyle().getFont();
-        font.derive(Font.SIZE_SMALL, Font.STYLE_PLAIN);
-        this.cmp.getAllStyles().setFont(font, true);
+        for (Component c : cmps) {
+            Font font = c.getUnselectedStyle().getFont();
+            font.derive(Font.SIZE_SMALL, Font.STYLE_PLAIN);
+            c.getAllStyles().setFont(font, true);
+        }
         return this;
     }
 
@@ -3833,9 +4363,11 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textMedium() {
-        Font font = this.cmp.getUnselectedStyle().getFont();
-        font.derive(Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
-        this.cmp.getAllStyles().setFont(font, true);
+        for (Component c : cmps) {
+            Font font = c.getUnselectedStyle().getFont();
+            font.derive(Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
+            c.getAllStyles().setFont(font, true);
+        }
         return this;
     }
 
@@ -3845,9 +4377,11 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textLarge() {
-        Font font = this.cmp.getUnselectedStyle().getFont();
-        font.derive(Font.SIZE_LARGE, Font.STYLE_PLAIN);
-        this.cmp.getAllStyles().setFont(font, true);
+        for (Component c : cmps) {
+            Font font = c.getUnselectedStyle().getFont();
+            font.derive(Font.SIZE_LARGE, Font.STYLE_PLAIN);
+            c.getAllStyles().setFont(font, true);
+        }
         return this;
     }
 
@@ -3857,7 +4391,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textBold() {
-        this.cmp.getAllStyles().setFont(Font.createTrueTypeFont("native:MainBold", "native:MainBold"), true);
+        for (Component c : cmps) {
+            c.getAllStyles().setFont(Font.createTrueTypeFont("native:MainBold", "native:MainBold"), true);
+        }
         return this;
     }
 
@@ -3867,7 +4403,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textThin() {
-        this.cmp.getAllStyles().setFont(Font.createTrueTypeFont("native:MainThin", "native:MainThin"), true);
+        for (Component c : cmps) {
+            c.getAllStyles().setFont(Font.createTrueTypeFont("native:MainThin", "native:MainThin"), true);
+        }
         return this;
     }
 
@@ -3877,7 +4415,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textItalics() {
-        this.cmp.getAllStyles().setFont(Font.createTrueTypeFont("native:MainThin", "native:ItalicLight"), true);
+        for (Component c : cmps) {
+            c.getAllStyles().setFont(Font.createTrueTypeFont("native:MainThin", "native:ItalicLight"), true);
+        }
         return this;
     }
 
@@ -3887,7 +4427,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textLeft() {
-        this.cmp.getAllStyles().setAlignment(Component.LEFT);
+        for (Component c : cmps) {
+            c.getAllStyles().setAlignment(Component.LEFT);
+        }
         return this;
     }
 
@@ -3897,7 +4439,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textRight() {
-        this.cmp.getAllStyles().setAlignment(Component.RIGHT);
+        for (Component c : cmps) {
+            c.getAllStyles().setAlignment(Component.RIGHT);
+        }
         return this;
     }
 
@@ -3907,7 +4451,9 @@ public class Helper {
      * @return the component with the applied styling to all states
      */
     public Helper textCenter() {
-        this.cmp.getAllStyles().setAlignment(Component.CENTER);
+        for (Component c : cmps) {
+            c.getAllStyles().setAlignment(Component.CENTER);
+        }
         return this;
     }
 
