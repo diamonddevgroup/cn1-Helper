@@ -3,10 +3,11 @@ A Helper library for basic styling using code in Codename One. This eliminates t
 
 Download  [Helper.cn1Lib][1] to the **Lib** folder of your project.
 Go to your project and do **Refresh cn1Lib files**.
+Call `new Helper(myCmp)` only AFTER `setUIID()` method and not BEFORE.
 
-# Example usage
+# Usage example
 
-    /*Style a single component*/
+    /*Basic styling of a single component*/
     Label myLabel = new Label("Test Label");
     new Helper(myLabel).pa1().ma0().textGreen().bgColor(0xe1e1e1);
     
@@ -14,7 +15,7 @@ Go to your project and do **Refresh cn1Lib files**.
     Label myLabel = new Label("Test Label");
     new Helper(myLabel, , Style.UNIT_TYPE_PIXELS).pa1().ma0().textGreen().bgColor(0xe1e1e1);
     
-    /*Same style to multiple components*/
+    /*Apply same style to multiple unrelated components, individual styles could still be applied*/
     Button myButton = new Button("Test Button 1");
     Label myLabel = new Label("Test Label");
     SpanLabel mySpanLabel = new SpanLabel("Test SpanLabel");
