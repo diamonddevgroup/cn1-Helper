@@ -18,6 +18,7 @@ import com.codename1.ui.plaf.Style;
 public class Helper {
 
     Component[] cmps;
+    int bg_trans;
 
     /**
      * Root method to set component and begin chaining of other methods to apply
@@ -28,10 +29,10 @@ public class Helper {
      */
     public Helper(Component... component) {
         this.cmps = component;
+        this.bg_trans = 255;
         for (Component c : cmps) {
             c.getAllStyles().setMarginUnit(Style.UNIT_TYPE_DIPS);
             c.getAllStyles().setPaddingUnit(Style.UNIT_TYPE_DIPS);
-            // c.getUnselectedStyle().setBgTransparency(255);        
         }
     }
 
@@ -45,11 +46,28 @@ public class Helper {
      */
     public Helper(byte unit, Component... component) {
         this.cmps = component;
+        this.bg_trans = 255;
         for (Component c : cmps) {
             c.getAllStyles().setMarginUnit(unit);
             c.getAllStyles().setPaddingUnit(unit);
         }
-        //c.getUnselectedStyle().setBgTransparency(255);        
+    }
+
+    /**
+     * Root method to set component, the background transparency and begin
+     * chaining of other methods to apply styling
+     *
+     * @param component component to apply styling to
+     * @param bgTrans background transparency between 0 and 255
+     *
+     */
+    public Helper(int bgTrans, Component... component) {
+        this.cmps = component;
+        for (Component c : cmps) {
+            if (bgTrans >= 0 && bgTrans <= 255) {
+                this.bg_trans = bgTrans;
+            }
+        }
     }
 
     /**
@@ -64,7 +82,7 @@ public class Helper {
         component.getAllStyles().setMarginUnit(unit);
         component.getAllStyles().setPaddingUnit(unit);
         this.cmps = new Component[]{component};
-        //c.getUnselectedStyle().setBgTransparency(255);        
+        this.bg_trans = 255;
     }
 
     /**
@@ -1757,7 +1775,7 @@ public class Helper {
      */
     public Helper bgColor_(int color) {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(color);
         }
         return this;
@@ -1771,7 +1789,7 @@ public class Helper {
      */
     public Helper bgColor___(int color) {
         for (Component c : cmps) {
-            c.getPressedStyle().setBgTransparency(255);
+            c.getPressedStyle().setBgTransparency(this.bg_trans);
             c.getPressedStyle().setBgColor(color);
         }
         return this;
@@ -1784,7 +1802,7 @@ public class Helper {
      */
     public Helper bgMuted_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x818a91);
         }
         return this;
@@ -1797,7 +1815,7 @@ public class Helper {
      */
     public Helper bgPrimary_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x145F80);
         }
         return this;
@@ -1810,7 +1828,7 @@ public class Helper {
      */
     public Helper bgSuccess_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x5cb85c);
         }
         return this;
@@ -1823,7 +1841,7 @@ public class Helper {
      */
     public Helper bgInfo_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x5bc0de);
         }
         return this;
@@ -1836,7 +1854,7 @@ public class Helper {
      */
     public Helper bgWarning_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xf0ad4e);
         }
         return this;
@@ -1849,7 +1867,7 @@ public class Helper {
      */
     public Helper bgDanger_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xd9534f);
         }
         return this;
@@ -1862,7 +1880,7 @@ public class Helper {
      */
     public Helper bgRed_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xf44336);
         }
         return this;
@@ -1875,7 +1893,7 @@ public class Helper {
      */
     public Helper bgPink_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xe91e63);
         }
         return this;
@@ -1888,7 +1906,7 @@ public class Helper {
      */
     public Helper bgPurple_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x9c27b0);
         }
         return this;
@@ -1901,7 +1919,7 @@ public class Helper {
      */
     public Helper bgDeepPurple_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x673ab7);
         }
         return this;
@@ -1914,7 +1932,7 @@ public class Helper {
      */
     public Helper bgIndigo_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x3f51b5);
         }
         return this;
@@ -1927,7 +1945,7 @@ public class Helper {
      */
     public Helper bgBlue_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x2196F3);
         }
         return this;
@@ -1940,7 +1958,7 @@ public class Helper {
      */
     public Helper bgLightBlue_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x03a9f4);
         }
         return this;
@@ -1953,7 +1971,7 @@ public class Helper {
      */
     public Helper bgCyan_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x00bcd4);
         }
         return this;
@@ -1966,7 +1984,7 @@ public class Helper {
      */
     public Helper bgTeal_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x009688);
         }
         return this;
@@ -1979,7 +1997,7 @@ public class Helper {
      */
     public Helper bgGreen_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x4caf50);
         }
         return this;
@@ -1992,7 +2010,7 @@ public class Helper {
      */
     public Helper bgLightGreen_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x8bc34a);
         }
         return this;
@@ -2005,7 +2023,7 @@ public class Helper {
      */
     public Helper bgLime_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xcddc39);
         }
         return this;
@@ -2018,7 +2036,7 @@ public class Helper {
      */
     public Helper bgYellow_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xffeb3b);
         }
         return this;
@@ -2031,7 +2049,7 @@ public class Helper {
      */
     public Helper bgAmber_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xffc107);
         }
         return this;
@@ -2044,7 +2062,7 @@ public class Helper {
      */
     public Helper bgOrange_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xff9800);
         }
         return this;
@@ -2057,7 +2075,7 @@ public class Helper {
      */
     public Helper bgDeepOrange_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xff5722);
         }
         return this;
@@ -2070,7 +2088,7 @@ public class Helper {
      */
     public Helper bgBrown_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x795548);
         }
         return this;
@@ -2083,7 +2101,7 @@ public class Helper {
      */
     public Helper bgGrey_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x9e9e9e);
         }
         return this;
@@ -2096,7 +2114,7 @@ public class Helper {
      */
     public Helper bgLightGrey_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xebebeb);
         }
         return this;
@@ -2109,7 +2127,7 @@ public class Helper {
      */
     public Helper bgBlueGrey_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x607d8b);
         }
         return this;
@@ -2122,7 +2140,7 @@ public class Helper {
      */
     public Helper bgBlack_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0x000000);
         }
         return this;
@@ -2135,7 +2153,7 @@ public class Helper {
      */
     public Helper bgWhite_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setBgTransparency(255);
+            c.getUnselectedStyle().setBgTransparency(this.bg_trans);
             c.getUnselectedStyle().setBgColor(0xffffff);
         }
         return this;
@@ -3973,7 +3991,7 @@ public class Helper {
      */
     public Helper bgColor(int color) {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(color);
         }
         return this;
@@ -3986,7 +4004,7 @@ public class Helper {
      */
     public Helper bgMuted() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x818a91);
         }
         return this;
@@ -3999,7 +4017,7 @@ public class Helper {
      */
     public Helper bgPrimary() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x145F80);
         }
         return this;
@@ -4012,7 +4030,7 @@ public class Helper {
      */
     public Helper bgSuccess() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x5cb85c);
         }
         return this;
@@ -4025,7 +4043,7 @@ public class Helper {
      */
     public Helper bgInfo() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x5bc0de);
         }
         return this;
@@ -4038,7 +4056,7 @@ public class Helper {
      */
     public Helper bgWarning() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xf0ad4e);
         }
         return this;
@@ -4051,7 +4069,7 @@ public class Helper {
      */
     public Helper bgDanger() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xd9534f);
         }
         return this;
@@ -4064,7 +4082,7 @@ public class Helper {
      */
     public Helper bgRed() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xf44336);
         }
         return this;
@@ -4077,7 +4095,7 @@ public class Helper {
      */
     public Helper bgPink() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xe91e63);
         }
         return this;
@@ -4090,7 +4108,7 @@ public class Helper {
      */
     public Helper bgPurple() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x9c27b0);
         }
         return this;
@@ -4103,7 +4121,7 @@ public class Helper {
      */
     public Helper bgDeepPurple() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x673ab7);
         }
         return this;
@@ -4116,7 +4134,7 @@ public class Helper {
      */
     public Helper bgIndigo() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x3f51b5);
         }
         return this;
@@ -4129,7 +4147,7 @@ public class Helper {
      */
     public Helper bgBlue() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x2196F3);
         }
         return this;
@@ -4142,7 +4160,7 @@ public class Helper {
      */
     public Helper bgLightBlue() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x03a9f4);
         }
         return this;
@@ -4155,7 +4173,7 @@ public class Helper {
      */
     public Helper bgCyan() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x00bcd4);
         }
         return this;
@@ -4168,7 +4186,7 @@ public class Helper {
      */
     public Helper bgTeal() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x009688);
         }
         return this;
@@ -4181,7 +4199,7 @@ public class Helper {
      */
     public Helper bgGreen() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x4caf50);
         }
         return this;
@@ -4194,7 +4212,7 @@ public class Helper {
      */
     public Helper bgLightGreen() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x8bc34a);
         }
         return this;
@@ -4207,7 +4225,7 @@ public class Helper {
      */
     public Helper bgLime() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xcddc39);
         }
         return this;
@@ -4220,7 +4238,7 @@ public class Helper {
      */
     public Helper bgYellow() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xffeb3b);
         }
         return this;
@@ -4233,7 +4251,7 @@ public class Helper {
      */
     public Helper bgAmber() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xffc107);
         }
         return this;
@@ -4246,7 +4264,7 @@ public class Helper {
      */
     public Helper bgOrange() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xff9800);
         }
         return this;
@@ -4259,7 +4277,7 @@ public class Helper {
      */
     public Helper bgDeepOrange() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xff5722);
         }
         return this;
@@ -4272,7 +4290,7 @@ public class Helper {
      */
     public Helper bgBrown() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x795548);
         }
         return this;
@@ -4285,7 +4303,7 @@ public class Helper {
      */
     public Helper bgGrey() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x9e9e9e);
         }
         return this;
@@ -4298,7 +4316,7 @@ public class Helper {
      */
     public Helper bgLightGrey() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xebebeb);
         }
         return this;
@@ -4311,7 +4329,7 @@ public class Helper {
      */
     public Helper bgBlueGrey() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x607d8b);
         }
         return this;
@@ -4324,7 +4342,7 @@ public class Helper {
      */
     public Helper bgBlack() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0x000000);
         }
         return this;
@@ -4337,7 +4355,7 @@ public class Helper {
      */
     public Helper bgWhite() {
         for (Component c : cmps) {
-            c.getAllStyles().setBgTransparency(255);
+            c.getAllStyles().setBgTransparency(this.bg_trans);
             c.getAllStyles().setBgColor(0xffffff);
         }
         return this;
