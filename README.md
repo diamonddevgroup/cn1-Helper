@@ -1,9 +1,13 @@
 # cn1-Helper
-A Helper library for basic styling using code in Codename One. This eliminates the to have endless endless UIID in your GUI builder
+A Helper library for basic styling using code in Codename One. This eliminates the need to have endless UIID in your GUI builder
 
 Download  [Helper.cn1Lib][1] to the **Lib** folder of your project.
 Go to your project and do **Refresh cn1Lib files**.
 Call `new Helper(myCmp)` only AFTER `setUIID()` method and not BEFORE.
+
+# JavaDoc
+
+View the JavaDoc here
 
 # Usage example
 
@@ -21,5 +25,9 @@ Call `new Helper(myCmp)` only AFTER `setUIID()` method and not BEFORE.
     SpanLabel mySpanLabel = new SpanLabel("Test SpanLabel");
     new Helper(myButton, myLabel, mySpanLabel.getComponentAt(1)).pa1().ma0().textGreen().bgColor(0xe1e1e1);
 
+# Contribution 
+
+You welcome to add more styling. Fork the project and commit your code.
+You can also improve the documentation, methods and classes used.
 
   [1]: https://github.com/diamondobama/cn1-Helper/blob/master/Helper.cn1lib?raw=true
