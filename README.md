@@ -7,19 +7,22 @@ Call `new Helper(myCmp)` only AFTER `setUIID()` method and not BEFORE.
 
 # JavaDoc
 
-View the JavaDoc here
+View the project JavaDoc [here][2].
 
 # Usage example
 
-    /*Basic styling of a single component*/
-    Label myLabel = new Label("Test Label");
-    new Helper(myLabel).pa1().ma0().textGreen().bgColor(0xe1e1e1);
+ **Basic styling of a single component**
+ 
+     Label myLabel = new Label("Test Label");
+     new Helper(myLabel).pa1().ma0().textGreen().bgColor(0xe1e1e1);
     
-    /*Style a single component with custom Unit*/
+**Style a single component with custom Unit**
+
     Label myLabel = new Label("Test Label");
     new Helper(myLabel, , Style.UNIT_TYPE_PIXELS).pa1().ma0().textGreen().bgColor(0xe1e1e1);
     
-    /*Apply same style to multiple unrelated components, individual styles could still be applied*/
+**Apply same style to multiple unrelated components, individual styles could still be applied**
+
     Button myButton = new Button("Test Button 1");
     Label myLabel = new Label("Test Label");
     SpanLabel mySpanLabel = new SpanLabel("Test SpanLabel");
@@ -27,7 +30,8 @@ View the JavaDoc here
 
 # Contribution 
 
-You welcome to add more styling. Fork the project and commit your code.
+You are welcome to add more styling. Fork the project and commit your code.
 You can also improve the documentation, methods and classes used.
 
   [1]: https://github.com/diamondobama/cn1-Helper/blob/master/Helper.cn1lib?raw=true
+  [2]: https://diamondobama.github.io/apidocs/cn1-helper/
