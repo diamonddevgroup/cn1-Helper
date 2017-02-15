@@ -6,8 +6,8 @@ import com.codename1.ui.Image;
 import com.codename1.ui.plaf.Style;
 
 /**
- * Helper class to apply styling in code to any component. This eliminates the
- * need to create multiple UIIDs.
+ * A Helper library for basic styling using code in Codename One. This
+ * eliminates the need to have endless UIID in your GUI builder
  * <br><br>
  * Multiple styling can be applied through chaining.<br><br>
  * <strong>Example:</strong><br>
@@ -41,7 +41,8 @@ public class Helper {
      * methods to apply styling
      *
      * @param component component to apply styling to
-     * @param unit
+     * @param unit unit of measurement, one of @code Style.UNIT_TYPE_DIPS,
+     * Style.UNIT_TYPE_PIXELS, Style.UNIT_TYPE_SCREEN_PERCENTAGE
      *
      */
     public Helper(byte unit, Component... component) {
@@ -75,7 +76,8 @@ public class Helper {
      * methods to apply styling
      *
      * @param component component to apply styling to
-     * @param unit
+     * @param unit unit of measurement, one of @code Style.UNIT_TYPE_DIPS,
+     * Style.UNIT_TYPE_PIXELS, Style.UNIT_TYPE_SCREEN_PERCENTAGE
      *
      */
     public Helper(Component component, byte unit) {
@@ -671,7 +673,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to top
      *
-     * @param size
+     * @param size in millimeters to apply to top margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mt_(int size) {
@@ -684,7 +686,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to bottom
      *
-     * @param size
+     * @param size in millimeters to apply to bottom margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mb_(int size) {
@@ -697,7 +699,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to left
      *
-     * @param size
+     * @param size in millimeters to apply to left margin
      * @return the component with the applied styling to unselected state
      */
     public Helper ml_(int size) {
@@ -710,7 +712,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to right
      *
-     * @param size
+     * @param size in millimeters to apply to right margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mr_(int size) {
@@ -723,7 +725,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to left and right
      *
-     * @param size
+     * @param size in millimeters to apply to left and right margins
      * @return the component with the applied styling to unselected state
      */
     public Helper mx_(int size) {
@@ -735,7 +737,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to top and bottom
      *
-     * @param size
+     * @param size in millimeters to apply to top and bottom margins
      * @return the component with the applied styling to unselected state
      */
     public Helper my_(int size) {
@@ -747,7 +749,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to top, bottom, left and right
      *
-     * @param size
+     * @param size in millimeters to apply to all margin
      * @return the component with the applied styling to unselected state
      */
     public Helper ma_(int size) {
@@ -1343,7 +1345,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to top
      *
-     * @param size
+     * @param size in millimeters to apply to top padding
      * @return the component with the applied styling to all states
      */
     public Helper pt_(int size) {
@@ -1356,7 +1358,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to bottom
      *
-     * @param size
+     * @param size in millimeters to apply to bottom padding
      * @return the component with the applied styling to all states
      */
     public Helper pb_(int size) {
@@ -1369,7 +1371,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to left
      *
-     * @param size
+     * @param size in millimeters to apply to left padding
      * @return the component with the applied styling to all states
      */
     public Helper pl_(int size) {
@@ -1382,7 +1384,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to right
      *
-     * @param size
+     * @param size in millimeters to apply to right padding
      * @return the component with the applied styling to all states
      */
     public Helper pr_(int size) {
@@ -1395,7 +1397,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to left and right
      *
-     * @param size
+     * @param size in millimeters to apply to left and right paddings
      * @return the component with the applied styling to all states
      */
     public Helper px_(int size) {
@@ -1407,7 +1409,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to top and bottom
      *
-     * @param size
+     * @param size in millimeters to apply to top and bottom paddings
      * @return the component with the applied styling to all states
      */
     public Helper py_(int size) {
@@ -1419,7 +1421,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to top, bottom, left and right
      *
-     * @param size
+     * @param size in millimeters to apply to all paddings
      * @return the component with the applied styling to all states
      */
     public Helper pa_(int size) {
@@ -2860,7 +2862,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to top
      *
-     * @param size
+     * @param size in millimeters to apply to top margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mt(int size) {
@@ -2873,7 +2875,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to bottom
      *
-     * @param size
+     * @param size in millimeters to apply to bottom margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mb(int size) {
@@ -2886,7 +2888,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to left
      *
-     * @param size
+     * @param size in millimeters to apply to left margin
      * @return the component with the applied styling to unselected state
      */
     public Helper ml(int size) {
@@ -2899,7 +2901,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to right
      *
-     * @param size
+     * @param size in millimeters to apply to right margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mr(int size) {
@@ -2912,7 +2914,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to left and right
      *
-     * @param size
+     * @param size in millimeters to apply to left and right margins
      * @return the component with the applied styling to unselected state
      */
     public Helper mx(int size) {
@@ -2924,7 +2926,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to top and bottom
      *
-     * @param size
+     * @param size in millimeters to apply to top and bottom margins
      * @return the component with the applied styling to unselected state
      */
     public Helper my(int size) {
@@ -2936,7 +2938,7 @@ public class Helper {
     /**
      * Applies custom millimeters margin to top, bottom, left and right
      *
-     * @param size
+     * @param size in millimeters to apply to all margins
      * @return the component with the applied styling to unselected state
      */
     public Helper ma(int size) {
@@ -3531,7 +3533,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to top
      *
-     * @param size
+     * @param size in millimeters to apply to top padding
      * @return the component with the applied styling to all states
      */
     public Helper pt(int size) {
@@ -3544,7 +3546,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to bottom
      *
-     * @param size
+     * @param size in millimeters to apply to bottom padding
      * @return the component with the applied styling to all states
      */
     public Helper pb(int size) {
@@ -3557,7 +3559,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to left
      *
-     * @param size
+     * @param size in millimeters to apply to left padding
      * @return the component with the applied styling to all states
      */
     public Helper pl(int size) {
@@ -3570,7 +3572,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to right
      *
-     * @param size
+     * @param size in millimeters to apply to right padding
      * @return the component with the applied styling to all states
      */
     public Helper pr(int size) {
@@ -3583,7 +3585,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to left and right
      *
-     * @param size
+     * @param size in millimeters to apply to left and right paddings
      * @return the component with the applied styling to all states
      */
     public Helper px(int size) {
@@ -3595,7 +3597,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to top and bottom
      *
-     * @param size
+     * @param size in millimeters to apply to top and bottom paddings
      * @return the component with the applied styling to all states
      */
     public Helper py(int size) {
@@ -3607,7 +3609,7 @@ public class Helper {
     /**
      * Applies custom millimeters padding to top, bottom, left and right
      *
-     * @param size
+     * @param size in millimeters to apply to all paddings
      * @return the component with the applied styling to all states
      */
     public Helper pa(int size) {
