@@ -1798,6 +1798,20 @@ public class Helper {
     }
 
     /**
+     * Apply a custom background color
+     *
+     * @param color int color to apply to background
+     * @return the component with the applied styling to disabled state
+     */
+    public Helper bgColor____(int color) {
+        for (Component c : cmps) {
+            c.getDisabledStyle().setBgTransparency(this.bg_trans);
+            c.getDisabledStyle().setBgColor(color);
+        }
+        return this;
+    }
+
+    /**
      * Mute a text to look disabled
      *
      * @return the component with the applied styling to unselected state
@@ -2278,6 +2292,66 @@ public class Helper {
     /**
      * THIS SECTION APPLIES STYLING TO ALL STATES
      */
+    /**
+     * Set maximum width the component should never exceed
+     *
+     * @param width the maximum width in pixel
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper maxWidth(int width) {
+        for (Component c : cmps) {
+            if (c.getPreferredW() > width) {
+                c.setPreferredW(width);
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set maximum height the component should never exceed
+     *
+     * @param height the maximum height in pixel
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper maxHeight(int height) {
+        for (Component c : cmps) {
+            if (c.getPreferredH() > height) {
+                c.setPreferredH(height);
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set minimum width the component should never exceed
+     *
+     * @param width the minimum width in pixel
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper minWidth(int width) {
+        for (Component c : cmps) {
+            if (c.getPreferredW() < width) {
+                c.setPreferredW(width);
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set minimum height the component should never exceed
+     *
+     * @param height the minimum height in pixel
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper minHeight(int height) {
+        for (Component c : cmps) {
+            if (c.getPreferredH() < height) {
+                c.setPreferredH(height);
+            }
+        }
+        return this;
+    }
+
     /**
      * Applies 0 millimeters margin to top
      *
@@ -3642,6 +3716,18 @@ public class Helper {
     public Helper textColor___(int color) {
         for (Component c : cmps) {
             c.getPressedStyle().setFgColor(color);
+        }
+        return this;
+    }
+    /**
+     * Apply a custom text color
+     *
+     * @param color int color to apply to text
+     * @return the component with the applied styling to disabled state
+     */
+    public Helper textColor____(int color) {
+        for (Component c : cmps) {
+            c.getDisabledStyle().setFgColor(color);
         }
         return this;
     }
