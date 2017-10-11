@@ -1,5 +1,6 @@
 package com.diamonddevgroup.utils;
 
+import com.codename1.ui.CN;
 import com.codename1.ui.Component;
 import com.codename1.ui.Font;
 import com.codename1.ui.Image;
@@ -41,8 +42,8 @@ public class Helper {
      * methods to apply styling
      *
      * @param component component to apply styling to
-     * @param unit unit of measurement, one of @code Style.UNIT_TYPE_DIPS,
-     * Style.UNIT_TYPE_PIXELS, Style.UNIT_TYPE_SCREEN_PERCENTAGE
+     * @param unit unit of measurement, one of {@code Style.UNIT_TYPE_DIPS,
+     * Style.UNIT_TYPE_PIXELS, Style.UNIT_TYPE_SCREEN_PERCENTAGE}
      *
      */
     public Helper(byte unit, Component... component) {
@@ -51,6 +52,28 @@ public class Helper {
         for (Component c : cmps) {
             c.getAllStyles().setMarginUnit(unit);
             c.getAllStyles().setPaddingUnit(unit);
+        }
+    }
+
+    /**
+     * Root method to set component, the background transparency and begin
+     * chaining of other methods to apply styling
+     *
+     * @param unit unit of measurement, one of {@code Style.UNIT_TYPE_DIPS,
+     * Style.UNIT_TYPE_PIXELS, Style.UNIT_TYPE_SCREEN_PERCENTAGE}
+     * @param bgTrans background transparency between 0 and 255
+     * @param component component to apply styling to
+     *
+     */
+    public Helper(byte unit, int bgTrans, Component... component) {
+        this.cmps = component;
+        this.bg_trans = 255;
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginUnit(unit);
+            c.getAllStyles().setPaddingUnit(unit);
+            if (bgTrans >= 0 && bgTrans <= 255) {
+                this.bg_trans = bgTrans;
+            }
         }
     }
 
@@ -76,8 +99,8 @@ public class Helper {
      * methods to apply styling
      *
      * @param component component to apply styling to
-     * @param unit unit of measurement, one of @code Style.UNIT_TYPE_DIPS,
-     * Style.UNIT_TYPE_PIXELS, Style.UNIT_TYPE_SCREEN_PERCENTAGE
+     * @param unit unit of measurement, one of {@code Style.UNIT_TYPE_DIPS,
+     * Style.UNIT_TYPE_PIXELS, Style.UNIT_TYPE_SCREEN_PERCENTAGE}
      *
      */
     public Helper(Component component, byte unit) {
@@ -684,12 +707,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters margin to top
+     *
+     * @param size in millimeters to apply to top margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper mt_(float size) {
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginTop(size);
+        }
+        return this;
+    }
+
+    /**
      * Applies custom millimeters margin to bottom
      *
      * @param size in millimeters to apply to bottom margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mb_(int size) {
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginBottom(size);
+        }
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters margin to bottom
+     *
+     * @param size in millimeters to apply to bottom margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper mb_(float size) {
         for (Component c : cmps) {
             c.getUnselectedStyle().setMarginBottom(size);
         }
@@ -710,12 +759,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters margin to left
+     *
+     * @param size in millimeters to apply to left margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper ml_(float size) {
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginLeft(size);
+        }
+        return this;
+    }
+
+    /**
      * Applies custom millimeters margin to right
      *
      * @param size in millimeters to apply to right margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mr_(int size) {
+        for (Component c : cmps) {
+            c.getUnselectedStyle().setMarginRight(size);
+        }
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters margin to right
+     *
+     * @param size in millimeters to apply to right margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper mr_(float size) {
         for (Component c : cmps) {
             c.getUnselectedStyle().setMarginRight(size);
         }
@@ -735,6 +810,18 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters margin to left and right
+     *
+     * @param size in millimeters to apply to left and right margins
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper mx_(float size) {
+        ml_(size);
+        mr_(size);
+        return this;
+    }
+
+    /**
      * Applies custom millimeters margin to top and bottom
      *
      * @param size in millimeters to apply to top and bottom margins
@@ -747,12 +834,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters margin to top and bottom
+     *
+     * @param size in millimeters to apply to top and bottom margins
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper my_(float size) {
+        mt_(size);
+        mb_(size);
+        return this;
+    }
+
+    /**
      * Applies custom millimeters margin to top, bottom, left and right
      *
      * @param size in millimeters to apply to all margin
      * @return the component with the applied styling to unselected state
      */
     public Helper ma_(int size) {
+        mt_(size);
+        mb_(size);
+        ml_(size);
+        mr_(size);
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters margin to top, bottom, left and right
+     *
+     * @param size in millimeters to apply to all margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper ma_(float size) {
         mt_(size);
         mb_(size);
         ml_(size);
@@ -1356,12 +1469,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters padding to top
+     *
+     * @param size in millimeters to apply to top padding
+     * @return the component with the applied styling to all states
+     */
+    public Helper pt_(float size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(size);
+        }
+        return this;
+    }
+
+    /**
      * Applies custom millimeters padding to bottom
      *
      * @param size in millimeters to apply to bottom padding
      * @return the component with the applied styling to all states
      */
     public Helper pb_(int size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(size);
+        }
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters padding to bottom
+     *
+     * @param size in millimeters to apply to bottom padding
+     * @return the component with the applied styling to all states
+     */
+    public Helper pb_(float size) {
         for (Component c : cmps) {
             c.getAllStyles().setPaddingBottom(size);
         }
@@ -1382,12 +1521,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters padding to left
+     *
+     * @param size in millimeters to apply to left padding
+     * @return the component with the applied styling to all states
+     */
+    public Helper pl_(float size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(size);
+        }
+        return this;
+    }
+
+    /**
      * Applies custom millimeters padding to right
      *
      * @param size in millimeters to apply to right padding
      * @return the component with the applied styling to all states
      */
     public Helper pr_(int size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(size);
+        }
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters padding to right
+     *
+     * @param size in millimeters to apply to right padding
+     * @return the component with the applied styling to all states
+     */
+    public Helper pr_(float size) {
         for (Component c : cmps) {
             c.getAllStyles().setPaddingRight(size);
         }
@@ -1407,6 +1572,18 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters padding to left and right
+     *
+     * @param size in millimeters to apply to left and right paddings
+     * @return the component with the applied styling to all states
+     */
+    public Helper px_(float size) {
+        pl_(size);
+        pr_(size);
+        return this;
+    }
+
+    /**
      * Applies custom millimeters padding to top and bottom
      *
      * @param size in millimeters to apply to top and bottom paddings
@@ -1419,12 +1596,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters padding to top and bottom
+     *
+     * @param size in millimeters to apply to top and bottom paddings
+     * @return the component with the applied styling to all states
+     */
+    public Helper py_(float size) {
+        pt_(size);
+        pb_(size);
+        return this;
+    }
+
+    /**
      * Applies custom millimeters padding to top, bottom, left and right
      *
      * @param size in millimeters to apply to all paddings
      * @return the component with the applied styling to all states
      */
     public Helper pa_(int size) {
+        pt_(size);
+        pb_(size);
+        pl_(size);
+        pr_(size);
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters padding to top, bottom, left and right
+     *
+     * @param size in millimeters to apply to all paddings
+     * @return the component with the applied styling to all states
+     */
+    public Helper pa_(float size) {
         pt_(size);
         pb_(size);
         pl_(size);
@@ -2182,9 +2385,9 @@ public class Helper {
      */
     public Helper textSmall_() {
         for (Component c : cmps) {
-            Font font = c.getUnselectedStyle().getFont();
+            final Font font = Font.createTrueTypeFont("native:MainRegular", "native:MainRegular");
             font.derive(Font.SIZE_SMALL, Font.STYLE_PLAIN);
-            c.getUnselectedStyle().setFont(font, true);
+            c.getUnselectedStyle().setFont(font);
         }
         return this;
     }
@@ -2196,9 +2399,9 @@ public class Helper {
      */
     public Helper textMedium_() {
         for (Component c : cmps) {
-            Font font = c.getUnselectedStyle().getFont();
+            final Font font = Font.createTrueTypeFont("native:MainRegular", "native:MainRegular");
             font.derive(Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
-            c.getUnselectedStyle().setFont(font, true);
+            c.getUnselectedStyle().setFont(font);
         }
         return this;
     }
@@ -2210,9 +2413,9 @@ public class Helper {
      */
     public Helper textLarge_() {
         for (Component c : cmps) {
-            Font font = c.getUnselectedStyle().getFont();
+            final Font font = Font.createTrueTypeFont("native:MainRegular", "native:MainRegular");
             font.derive(Font.SIZE_LARGE, Font.STYLE_PLAIN);
-            c.getUnselectedStyle().setFont(font, true);
+            c.getUnselectedStyle().setFont(font);
         }
         return this;
     }
@@ -2224,31 +2427,37 @@ public class Helper {
      */
     public Helper textBold_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainBold", "native:MainBold"), true);
+            final Font font = Font.createTrueTypeFont("native:MainBold", "native:MainBold");
+            font.derive(Font.SIZE_MEDIUM, Font.STYLE_BOLD);
+            c.getUnselectedStyle().setFont(font);
         }
         return this;
     }
 
     /**
-     * Makes text thin
+     * Makes text light
      *
      * @return the component with the applied styling to unselected state
      */
-    public Helper textThin_() {
+    public Helper textLight_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainThin", "native:MainThin"), true);
+            final Font font = Font.createTrueTypeFont("native:MainLight", "native:MainLight");
+            font.derive(Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
+            c.getUnselectedStyle().setFont(font);
         }
         return this;
     }
 
     /**
-     * Makes text italics
+     * Makes text italic
      *
      * @return the component with the applied styling to unselected state
      */
-    public Helper textItalics_() {
+    public Helper textItalic_() {
         for (Component c : cmps) {
-            c.getUnselectedStyle().setFont(Font.createTrueTypeFont("native:MainThin", "native:ItalicLight"), true);
+            final Font font = Font.createTrueTypeFont("native:ItalicRegular", "native:ItalicRegular");
+            font.derive(Font.SIZE_MEDIUM, Font.STYLE_ITALIC);
+            c.getUnselectedStyle().setFont(font);
         }
         return this;
     }
@@ -2947,12 +3156,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters margin to top
+     *
+     * @param size in millimeters to apply to top margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper mt(float size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginTop(size);
+        }
+        return this;
+    }
+
+    /**
      * Applies custom millimeters margin to bottom
      *
      * @param size in millimeters to apply to bottom margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mb(int size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginBottom(size);
+        }
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters margin to bottom
+     *
+     * @param size in millimeters to apply to bottom margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper mb(float size) {
         for (Component c : cmps) {
             c.getAllStyles().setMarginBottom(size);
         }
@@ -2973,12 +3208,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters margin to left
+     *
+     * @param size in millimeters to apply to left margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper ml(float size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginLeft(size);
+        }
+        return this;
+    }
+
+    /**
      * Applies custom millimeters margin to right
      *
      * @param size in millimeters to apply to right margin
      * @return the component with the applied styling to unselected state
      */
     public Helper mr(int size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setMarginRight(size);
+        }
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters margin to right
+     *
+     * @param size in millimeters to apply to right margin
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper mr(float size) {
         for (Component c : cmps) {
             c.getAllStyles().setMarginRight(size);
         }
@@ -2998,6 +3259,18 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters margin to left and right
+     *
+     * @param size in millimeters to apply to left and right margins
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper mx(float size) {
+        ml(size);
+        mr(size);
+        return this;
+    }
+
+    /**
      * Applies custom millimeters margin to top and bottom
      *
      * @param size in millimeters to apply to top and bottom margins
@@ -3010,12 +3283,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters margin to top and bottom
+     *
+     * @param size in millimeters to apply to top and bottom margins
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper my(float size) {
+        mt(size);
+        mb(size);
+        return this;
+    }
+
+    /**
      * Applies custom millimeters margin to top, bottom, left and right
      *
      * @param size in millimeters to apply to all margins
      * @return the component with the applied styling to unselected state
      */
     public Helper ma(int size) {
+        mt(size);
+        mb(size);
+        ml(size);
+        mr(size);
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters margin to top, bottom, left and right
+     *
+     * @param size in millimeters to apply to all margins
+     * @return the component with the applied styling to unselected state
+     */
+    public Helper ma(float size) {
         mt(size);
         mb(size);
         ml(size);
@@ -3618,12 +3917,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters padding to top
+     *
+     * @param size in millimeters to apply to top padding
+     * @return the component with the applied styling to all states
+     */
+    public Helper pt(float size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingTop(size);
+        }
+        return this;
+    }
+
+    /**
      * Applies custom millimeters padding to bottom
      *
      * @param size in millimeters to apply to bottom padding
      * @return the component with the applied styling to all states
      */
     public Helper pb(int size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingBottom(size);
+        }
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters padding to bottom
+     *
+     * @param size in millimeters to apply to bottom padding
+     * @return the component with the applied styling to all states
+     */
+    public Helper pb(float size) {
         for (Component c : cmps) {
             c.getAllStyles().setPaddingBottom(size);
         }
@@ -3644,12 +3969,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters padding to left
+     *
+     * @param size in millimeters to apply to left padding
+     * @return the component with the applied styling to all states
+     */
+    public Helper pl(float size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingLeft(size);
+        }
+        return this;
+    }
+
+    /**
      * Applies custom millimeters padding to right
      *
      * @param size in millimeters to apply to right padding
      * @return the component with the applied styling to all states
      */
     public Helper pr(int size) {
+        for (Component c : cmps) {
+            c.getAllStyles().setPaddingRight(size);
+        }
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters padding to right
+     *
+     * @param size in millimeters to apply to right padding
+     * @return the component with the applied styling to all states
+     */
+    public Helper pr(float size) {
         for (Component c : cmps) {
             c.getAllStyles().setPaddingRight(size);
         }
@@ -3669,6 +4020,18 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters padding to left and right
+     *
+     * @param size in millimeters to apply to left and right paddings
+     * @return the component with the applied styling to all states
+     */
+    public Helper px(float size) {
+        pl(size);
+        pr(size);
+        return this;
+    }
+
+    /**
      * Applies custom millimeters padding to top and bottom
      *
      * @param size in millimeters to apply to top and bottom paddings
@@ -3681,12 +4044,38 @@ public class Helper {
     }
 
     /**
+     * Applies custom millimeters padding to top and bottom
+     *
+     * @param size in millimeters to apply to top and bottom paddings
+     * @return the component with the applied styling to all states
+     */
+    public Helper py(float size) {
+        pt(size);
+        pb(size);
+        return this;
+    }
+
+    /**
      * Applies custom millimeters padding to top, bottom, left and right
      *
      * @param size in millimeters to apply to all paddings
      * @return the component with the applied styling to all states
      */
     public Helper pa(int size) {
+        pt(size);
+        pb(size);
+        pl(size);
+        pr(size);
+        return this;
+    }
+
+    /**
+     * Applies custom millimeters padding to top, bottom, left and right
+     *
+     * @param size in millimeters to apply to all paddings
+     * @return the component with the applied styling to all states
+     */
+    public Helper pa(float size) {
         pt(size);
         pb(size);
         pl(size);
@@ -3719,6 +4108,7 @@ public class Helper {
         }
         return this;
     }
+
     /**
      * Apply a custom text color
      *
@@ -4067,6 +4457,21 @@ public class Helper {
             c.getAllStyles().setBgTransparency(0);
             c.getAllStyles().setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
             c.getAllStyles().setBgImage(image);
+        }
+        return this;
+    }
+
+    /**
+     * Apply a custom opacity
+     *
+     * @param opacity int opacity to apply to component
+     * @return the component with the applied styling to all states
+     */
+    public Helper opacity(int opacity) {
+        for (Component c : cmps) {
+            if (opacity >= 0 && opacity <= 255) {
+                c.getAllStyles().setOpacity(opacity);
+            }
         }
         return this;
     }
@@ -4456,9 +4861,9 @@ public class Helper {
      */
     public Helper textSmall() {
         for (Component c : cmps) {
-            Font font = c.getUnselectedStyle().getFont();
+            final Font font = Font.createTrueTypeFont("native:MainRegular", "native:MainRegular");
             font.derive(Font.SIZE_SMALL, Font.STYLE_PLAIN);
-            c.getAllStyles().setFont(font, true);
+            c.getAllStyles().setFont(font);
         }
         return this;
     }
@@ -4470,9 +4875,9 @@ public class Helper {
      */
     public Helper textMedium() {
         for (Component c : cmps) {
-            Font font = c.getUnselectedStyle().getFont();
+            final Font font = Font.createTrueTypeFont("native:MainRegular", "native:MainRegular");
             font.derive(Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
-            c.getAllStyles().setFont(font, true);
+            c.getAllStyles().setFont(font);
         }
         return this;
     }
@@ -4484,9 +4889,9 @@ public class Helper {
      */
     public Helper textLarge() {
         for (Component c : cmps) {
-            Font font = c.getUnselectedStyle().getFont();
+            final Font font = Font.createTrueTypeFont("native:MainRegular", "native:MainRegular");
             font.derive(Font.SIZE_LARGE, Font.STYLE_PLAIN);
-            c.getAllStyles().setFont(font, true);
+            c.getAllStyles().setFont(font);
         }
         return this;
     }
@@ -4498,31 +4903,37 @@ public class Helper {
      */
     public Helper textBold() {
         for (Component c : cmps) {
-            c.getAllStyles().setFont(Font.createTrueTypeFont("native:MainBold", "native:MainBold"), true);
+            final Font font = Font.createTrueTypeFont("native:MainBold", "native:MainBold");
+            font.derive(Font.SIZE_MEDIUM, Font.STYLE_BOLD);
+            c.getAllStyles().setFont(font);
         }
         return this;
     }
 
     /**
-     * Makes text thin
+     * Makes text light
      *
      * @return the component with the applied styling to all states
      */
-    public Helper textThin() {
+    public Helper textLight() {
         for (Component c : cmps) {
-            c.getAllStyles().setFont(Font.createTrueTypeFont("native:MainThin", "native:MainThin"), true);
+            final Font font = Font.createTrueTypeFont("native:MainLight", "native:MainLight");
+            font.derive(Font.SIZE_MEDIUM, Font.STYLE_PLAIN);
+            c.getAllStyles().setFont(font);
         }
         return this;
     }
 
     /**
-     * Makes text italics
+     * Makes text italic
      *
      * @return the component with the applied styling to all states
      */
-    public Helper textItalics() {
+    public Helper textItalic() {
         for (Component c : cmps) {
-            c.getAllStyles().setFont(Font.createTrueTypeFont("native:MainThin", "native:ItalicLight"), true);
+            final Font font = Font.createTrueTypeFont("native:ItalicRegular", "native:ItalicRegular");
+            font.derive(Font.SIZE_MEDIUM, Font.STYLE_ITALIC);
+            c.getAllStyles().setFont(font);
         }
         return this;
     }
@@ -4563,4 +4974,291 @@ public class Helper {
         return this;
     }
 
+    public Helper borderTop(int radius, Component... cmps) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(1).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(1).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(1).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(1).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderBottom(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(2).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(2).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(2).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(2).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderLeft(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(3).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(3).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(3).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(3).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderRight(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(4).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(4).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(4).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(4).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderAll(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderAllWithShadow(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius).shadowOpacity(20).shadowSpread(CN.convertToPixels(0.2f), false).shadowX(0.4f).shadowY(0.3f));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius).shadowOpacity(20).shadowSpread(CN.convertToPixels(0.2f), false).shadowX(0.4f).shadowY(0.3f));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius).shadowOpacity(20).shadowSpread(CN.convertToPixels(0.2f), false).shadowX(0.4f).shadowY(0.3f));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius).shadowOpacity(20).shadowSpread(CN.convertToPixels(0.2f), false).shadowX(0.4f).shadowY(0.3f));
+        }
+        return this;
+    }
+
+    public Helper borderTopLeft(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(5).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(5).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(5).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(5).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderTopRight(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(6).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(6).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(6).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(6).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderBottomLeft(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(7).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(7).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(7).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(7).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderBottomRight(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(8).radius(radius));
+            cmp.getSelectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getSelectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(8).radius(radius));
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(8).radius(radius));
+            cmp.getDisabledStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getDisabledStyle().getBgColor()).
+                    rectangle(false).roundedPosition(8).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderTop_(int radius, Component... cmps) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(1).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderBottom_(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(2).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderLeft_(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(3).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderRight_(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(4).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderAll_(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderAllWithShadow_(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getUnselectedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getUnselectedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius).shadowOpacity(20).shadowSpread(CN.convertToPixels(0.2f), false).shadowX(0.4f).shadowY(0.3f));
+        }
+        return this;
+    }
+
+    public Helper borderTop___(int radius, Component... cmps) {
+        for (Component cmp : cmps) {
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(1).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderBottom___(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(2).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderLeft___(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(3).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderRight___(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(4).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderAll___(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius));
+        }
+        return this;
+    }
+
+    public Helper borderAllWithShadow___(int radius) {
+        for (Component cmp : cmps) {
+            cmp.getPressedStyle().setBorder(RoundedBorder.create().
+                    color(cmp.getPressedStyle().getBgColor()).
+                    rectangle(false).roundedPosition(-1).radius(radius).shadowOpacity(20).shadowSpread(CN.convertToPixels(0.2f), false).shadowX(0.4f).shadowY(0.3f));
+        }
+        return this;
+    }
 }
